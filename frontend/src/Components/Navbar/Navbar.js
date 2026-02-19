@@ -11,6 +11,7 @@ function Navbar() {
         <li><Link to="/transactions">Transactions</Link></li>
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/login">Logout</Link></li>
+
       </ul>
     </nav>
   );
