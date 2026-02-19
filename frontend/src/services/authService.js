@@ -1,18 +1,17 @@
-// src/services/authService.js
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/auth"; // adjust to your backend route
+const API_URL = "http://localhost:5000/api/auth";
 
 // Register new user
 const register = async (userData) => {
   const res = await axios.post(`${API_URL}/register`, userData);
-  return res.data; // { message: "User registered successfully" }
+  return res.data;
 };
 
 // Login user
 const login = async (userData) => {
   const res = await axios.post(`${API_URL}/login`, userData);
-  return res.data.token; // backend should return JWT
+  return res.data; // return full object, not just token
 };
 
 export default { register, login };
