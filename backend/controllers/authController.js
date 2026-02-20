@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
 const { poolPromise, sql } = require("../config/db");
 
 const register = async (req, res) => {
