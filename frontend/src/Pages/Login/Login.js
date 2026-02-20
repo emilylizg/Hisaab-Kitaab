@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./Login.css";
 import authService from "../../services/authService";  // <-- corrected path
 
+console.log("SECRET:", process.env.JWT_SECRET);
+console.log("EXPIRES:", process.env.JWT_EXPIRES_IN);
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
