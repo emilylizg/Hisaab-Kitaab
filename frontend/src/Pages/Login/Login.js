@@ -1,9 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";   // <-- add this
 import "./Login.css";
-import authService from "../../services/authService";  // <-- corrected path
-
-console.log("SECRET:", process.env.JWT_SECRET);
-console.log("EXPIRES:", process.env.JWT_EXPIRES_IN);
+import authService from "../../services/authService";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -18,7 +16,7 @@ function Login() {
       const token = await authService.login(form);
       localStorage.setItem("token", token);
       alert("Login successful!");
-     window.location.href = "/home"; // redirect to Home
+      window.location.href = "/home"; // redirect to Home
     } catch (err) {
       alert("Login failed: " + err.message);
     }
@@ -32,6 +30,9 @@ function Login() {
         <input name="password" type="password" placeholder="Password" onChange={handleChange} />
         <button type="submit">Login</button>
       </form>
+      <p className="register-link">
+        New user? <Link to="/register">Register here</Link>
+      </p>
     </div>
   );
 }
