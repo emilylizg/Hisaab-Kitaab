@@ -107,6 +107,29 @@ body {
     font-weight: bold;
 }
 
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transaction-table th,
+.transaction-table td {
+  border: 1px solid #636B2F;
+  padding: 10px;
+  text-align: left;
+  color: #3D4127;
+}
+
+.transaction-table th {
+  background-color: #636B2F;
+  color: #D4DE95;
+}
+
+.transaction-table tr:nth-child(even) {
+  background-color: #BAC095;
+}
+
 @media (max-width: 768px) {
     .dashboard-header {
         flex-direction: column;
