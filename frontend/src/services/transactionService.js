@@ -1,33 +1,38 @@
-// src/services/transactionService.js
 import axios from "axios";
 
 const API_URL = "http://localhost:5000/transactions";
 
-// Get summary (income, expense, savings)
-const getSummary = async () => {
+const getAuthConfig = () => {
   const token = localStorage.getItem("token");
-  const res = await axios.get(`${API_URL}/summary`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-  return res.data; // { income, expense, savings }
+
+  if (!token) {
+    console.error("No token found in localStorage");
+    return {};
+  }
+
+  return {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+};
+
+// Get summary
+const getSummary = async () => {
+  const res = await axios.get(`${API_URL}/summary`, getAuthConfig());
+  return res.data;
 };
 
 // Add new transaction
 const addTransaction = async (transaction) => {
-  const token = localStorage.getItem("token");
-  const res = await axios.post(API_URL, transaction, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
+  const res = await axios.post(`${API_URL}`, transaction, getAuthConfig());
   return res.data;
 };
 
 // Get all transactions
 const getTransactions = async () => {
-  const token = localStorage.getItem("token");
-  const res = await axios.get(API_URL, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-  return res.data; // array of transactions
+  const res = await axios.get(API_URL, getAuthConfig());
+  return res.data;
 };
 
 export default { getSummary, addTransaction, getTransactions };
