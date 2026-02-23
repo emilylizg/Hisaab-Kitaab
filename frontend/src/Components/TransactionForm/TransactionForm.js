@@ -23,7 +23,7 @@ function TransactionForm({ onSubmit }) {
       title: "",
       amount: "",
       type: "Income",
-      category: "",
+      category: "Food",
       transactionDate: ""
     });
   };
@@ -56,7 +56,7 @@ function TransactionForm({ onSubmit }) {
         <option value="Food">Food</option>
         <option value="Travel">Travel</option>
         <option value="Medical">Medical</option>
-        <option value="Utilities">Utilities</option>
+        <option value="Utility">Utility</option>
         <option value="Others">Others</option>
       </select>
 
