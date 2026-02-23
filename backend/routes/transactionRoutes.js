@@ -6,11 +6,13 @@ const {
     addTransaction,
     getTransactions,
     updateTransaction,
+    getSummary
 } = require("../controllers/transactionController");
 
 router.use(authenticateToken);
 
 router.post("/", addTransaction);
+router.get("/summary", getSummary);
 router.get("/", getTransactions);
 router.put("/:id", updateTransaction);
 
