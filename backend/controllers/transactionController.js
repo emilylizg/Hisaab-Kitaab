@@ -8,6 +8,38 @@ const { poolPromise, sql } = require("../config/db");
 
 const allowedCategories = ["Food", "Travel", "Medical", "Utility", "Others"];
 
+const sql = require("mssql");
+const { poolPromise } = require("../config/db");
+
+const getUserTransactions = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const pool = await poolPromise;
+
+    const result = await pool.request()
+      .input("UserId", sql.Int, userId)
+      .query(`
+        SELECT 
+          Id,
+          Title,
+          Category,
+          Type,
+          Amount,
+          TransactionDate
+        FROM Transactions
+        WHERE UserId = @UserId
+        ORDER BY TransactionDate DESC
+      `);
+
+    res.status(200).json(result.recordset);
+
+  } catch (err) {
+    console.error("Transaction fetch error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 const getSummary = async (req, res) => {
     try {
         const userId = req.user.id;
@@ -185,5 +217,6 @@ module.exports = {
     addTransaction,
     getTransactions,
     updateTransaction,
-    getSummary
+    getSummary,
+    getUserTransactions
 };

@@ -2,11 +2,17 @@ const express = require("express");
 const router = express.Router();
 const authenticateToken = require("../middleware/authMiddleware");
 
+const {  } = require("../controllers/transactionController");
+const verifyToken = require("../middleware/verifyToken");
+
+router.get("/transactions", verifyToken, getUserTransactions);
+
 const {
     addTransaction,
     getTransactions,
     updateTransaction,
-    getSummary
+    getSummary,
+    getUserTransactions
 } = require("../controllers/transactionController");
 
 router.use(authenticateToken);
