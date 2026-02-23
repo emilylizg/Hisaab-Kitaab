@@ -25,7 +25,7 @@ const getSummary = async () => {
 
 // Add new transaction
 const addTransaction = async (transaction) => {
-  const res = await axios.post(API_URL, transaction, getAuthConfig());
+  const res = await axios.post(`${API_URL}`, transaction, getAuthConfig());
   return res.data;
 };
 
