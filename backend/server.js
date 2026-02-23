@@ -1,10 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-
 const app = express();
 const authRoutes = require("./routes/authRoutes");
 const transactionRoutes = require("./routes/transactionRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 app.use(cors({
   origin: "http://localhost:3000",
@@ -13,7 +13,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
+app.use("/dashboard", dashboardRoutes);
 app.use("/transactions", transactionRoutes);
 app.use("/auth", authRoutes);
 
