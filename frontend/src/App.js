@@ -6,8 +6,7 @@ import Register from "./Pages/Register/Register.js";
 import Login from "./Pages/Login/Login.js";
 import Transactions from "./Pages/Transactions/Transactions.js";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute.js";
-
-// import Dashboard from "./Pages/Dashboard/Dashboard.js";
+import Dashboard from "./Pages/Dashboard/Dashboard.js"; 
 
 function App() {
   const token = localStorage.getItem("token");
@@ -53,14 +52,14 @@ function App() {
           }
         />
 
-        {/* <Route
+        { <Route
           path="/dashboard"
           element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           }
-        /> */}
+        /> }
 
       </Routes>
       <Footer />

@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #BAC095;
+    color: #3D4127;
+    padding: 30px;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    color: #636B2F;
+    font-size: 28px;
+}
+
+
+.frequency-select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #636B2F;
+    background-color: #D4DE95;
+    color: #3D4127;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.frequency-select:hover {
+    background-color: #636B2F;
+    color: #ffffff;
+}
+
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.category-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-left: 8px solid #636B2F;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.category-card h3 {
+    margin-bottom: 10px;
+    color: #636B2F;
+    font-size: 18px;
+}
+
+.category-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3D4127;
+}
+
+.summary-section {
+    background-color: #636B2F;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #ffffff;
+}
+
+.summary-box {
+    flex: 1;
+    min-width: 250px;
+}
+
+.summary-box h4 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.summary-box p {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .summary-section {
+        flex-direction: column;
+    }
+}
