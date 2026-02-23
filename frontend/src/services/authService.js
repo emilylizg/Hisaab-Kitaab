@@ -11,7 +11,7 @@ const register = async (userData) => {
 // Login user
 const login = async (userData) => {
   const res = await axios.post(`${API_URL}/login`, userData);
-  return res.data; // return full object, not just token
+  return res.data.token;
 };
 
 export default { register, login };
