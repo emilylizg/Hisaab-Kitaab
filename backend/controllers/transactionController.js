@@ -8,8 +8,6 @@ const { poolPromise, sql } = require("../config/db");
 
 const allowedCategories = ["Food", "Travel", "Medical", "Utility", "Others"];
 
-const sql = require("mssql");
-const { poolPromise } = require("../config/db");
 
 const getUserTransactions = async (req, res) => {
   try {

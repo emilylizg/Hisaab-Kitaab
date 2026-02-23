@@ -3,9 +3,8 @@ const router = express.Router();
 const authenticateToken = require("../middleware/authMiddleware");
 
 const {  } = require("../controllers/transactionController");
-const verifyToken = require("../middleware/verifyToken");
+// const verifyToken = require("../middleware/verifyToken");
 
-router.get("/transactions", verifyToken, getUserTransactions);
 
 const {
     addTransaction,
@@ -14,6 +13,8 @@ const {
     getSummary,
     getUserTransactions
 } = require("../controllers/transactionController");
+
+router.get("/transactions", authenticateToken, getUserTransactions);
 
 router.use(authenticateToken);
 
