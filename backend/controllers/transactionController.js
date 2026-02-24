@@ -6,7 +6,7 @@
 // controllers/transactionController.js (replace addTransaction)
 const { poolPromise, sql } = require("../config/db");
 
-const allowedCategories = ["Food", "Travel", "Medical", "Utility", "Others"];
+const allowedCategories = ["Food", "Travel", "Medical", "Utilities", "Others"];
 
 
 const getUserTransactions = async (req, res) => {
